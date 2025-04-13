@@ -8,7 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             background-color: #f4f4f4;
         }
         h1, h2 {
@@ -21,6 +21,27 @@
         a:hover {
             text-decoration: underline;
         }
+        .header {
+            width: 100%;
+            height: 300px;
+            background-image: url('data-analytics-header.jpg'); /* Replace with placeholder URL if needed */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .content {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
         .project {
             background: white;
             padding: 15px;
@@ -28,28 +49,39 @@
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
+        @media (max-width: 768px) {
+            .header {
+                height: 200px;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>Alexander - Data Analytics Portfolio</h1>
-    <p>Welcome to my portfolio! I’m a data analyst with a passion for turning data into actionable insights.</p>
-    
-    <h2>Projects</h2>
-    <div class="project">
-        <h3>Cyclistic Bike-Share Analysis</h3>
-        <p>Capstone project for the Google Data Analytics Certificate. Analyzed bike-share data to compare casual riders and annual members, and proposed marketing strategies.</p>
-        <p><a href="https://github.com/AlexanderGS0x/Cyclistic-Capstone">View on GitHub</a></p>
-        <p><a href="https://github.com/AlexanderGS0x/Cyclistic-Capstone/raw/main/CyclisticReport.pdf">Download Report (PDF)</a></p>
+    <div class="header">
+        <h1>Alexander - Data Analytics Portfolio</h1>
     </div>
-
-<div class="project">
-    <h3>Online Retail Customer Retention Analysis</h3>
-    <p>Analysis of customer retention for an online retail business, identifying patterns and proposing strategies to improve loyalty.</p>
-    <p><a href="https://github.com/AlexanderGS0x/Online-Retail-Retention-Analysis">View on GitHub</a></p>
-    <p><a href="https://github.com/AlexanderGS0x/Online-Retail-Retention-Analysis/raw/main/OnlineRetailAnalysis.html">View Report (HTML)</a></p>
-</div>
-    
-    <h2>Contact</h2>
-    <p>Connect with me on <a href="https://www.linkedin.com/in/alexander-gallagher/">LinkedIn</a> </p>
+    <div class="content">
+        <p>Welcome to my portfolio! I’m a data analyst with a passion for turning data into actionable insights.</p>
+        
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>Cyclistic Bike-Share Analysis</h3>
+            <p>Capstone project for the Google Data Analytics Certificate. Analyzed bike-share data to compare casual riders and annual members, and proposed marketing strategies.</p>
+            <p><a href="https://github.com/AlexanderGS0x/Cyclistic-Capstone">View on GitHub</a></p>
+            <p><a href="https://github.com/AlexanderGS0x/Cyclistic-Capstone/raw/main/CyclisticReport.pdf">Download Report (PDF)</a></p>
+        </div>
+        <div class="project">
+            <h3>Online Retail Customer Retention Analysis</h3>
+            <p>Analysis of customer retention for an online retail business, identifying patterns and proposing strategies to improve loyalty.</p>
+            <p><a href="https://github.com/AlexanderGS0x/Online-Retail-Retention-Analysis">View on GitHub</a></p>
+            <p><a href="https://github.com/AlexanderGS0x/Online-Retail-Retention-Analysis/raw/main/OnlineRetailAnalysis.html">View Report (HTML)</a></p>
+        </div>
+        
+        <h2>Contact</h2>
+        <p>Connect with me on <a href="https://www.linkedin.com/in/alexander-gallagher">LinkedIn</a>
+    </div>
 </body>
 </html>
