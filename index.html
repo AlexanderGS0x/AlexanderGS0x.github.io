@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Alexander Gallagher Salvador's data analytics portfolio showcasing projects in R, SQL, Tableau, and Google Sheets.">
+    <meta name="keywords" content="data analytics, portfolio, R, SQL, Tableau, Google Sheets, Alexander Gallagher Salvador">
     <title>Alexander - Data Analytics Portfolio</title>
     <style>
         body {
@@ -35,12 +37,13 @@
         .header h1 {
             margin: 0;
             font-size: 2.5em;
-            color: #fff; /* White for maximum contrast */
-            text-shadow: 4px 4px 10px rgba(0, 0, 0, 1); /* Strong black shadow for prominence */        }
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
         .content {
             max-width: 1000px;
             margin: 20px auto;
-            padding: 0 20px;
+            padding: 20px;
         }
         .project {
             background: white;
@@ -48,6 +51,17 @@
             margin: 10px 0;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        pre {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: Consolas, monospace;
+            font-size: 0.9em;
         }
         @media (max-width: 768px) {
             .header {
@@ -63,48 +77,44 @@
     <div class="header">
         <h1>Alexander - Data Analytics Portfolio</h1>
     </div>
-
     <div class="content">
-        <p>Welcome to my portfolio! I’m a data analyst with a passion for turning data into actionable insights.</p>
+        <p>Welcome to my portfolio! I’m a data analyst passionate about turning data into actionable insights using R, SQL, Tableau, and Google Sheets. Explore my projects to see how I solve real-world problems with data.</p>
         
         <h2>Projects</h2>
         <div class="project">
             <h3>Cyclistic Bike-Share Analysis</h3>
-            <p>Capstone project for the Google Data Analytics Certificate. Analyzed bike-share data to compare casual riders and annual members, and proposed marketing strategies.</p>
+            <p>Capstone project for the Google Data Analytics Certificate. Analyzed bike-share data to compare casual riders and annual members, proposing marketing strategies.</p>
             <p><a href="https://github.com/AlexanderGS0x/Cyclistic-Capstone">View on GitHub</a></p>
             <p><a href="https://github.com/AlexanderGS0x/Cyclistic-Capstone/raw/main/CyclisticReport.pdf">Download Report (PDF)</a></p>
         </div>
         <div class="project">
             <h3>Online Retail Customer Retention Analysis</h3>
-            <p>Analysis of customer retention for an online retail business, identifying patterns and proposing strategies to improve loyalty.</p>
+            <p>Analyzed customer retention for an online retail business, identifying patterns and proposing strategies to improve loyalty.</p>
             <p><a href="https://github.com/AlexanderGS0x/Online-Retail-Retention-Analysis">View on GitHub</a></p>
             <p><a href="https://github.com/AlexanderGS0x/Online-Retail-Retention-Analysis/raw/main/OnlineRetailAnalysis.html">View Report (HTML)</a></p>
         </div>
-
-<div class="project">
-    <h3>Stablecoin Analysis Project</h3>
-    <p>Analyzed the stability of four stablecoins (USDT, USDC, DAI, TUSD) using R, SQL, and Tableau Public. Includes data cleaning, statistical analysis, and interactive visualizations.</p>
-    <p><a href="https://github.com/AlexanderGS0x/Stablecoin-Analysis">View on GitHub</a></p>
-    <p><a href="https://public.tableau.com/app/profile/alexander.gallagher/viz/StablecoinAnalysisVisualizations/Dashboard1">View Visualizations on Tableau Public</a></p>
-</div>
-
-<div class="project">
-    <h3>Low Insulin Diet Study</h3>
-    <p>Analyzed the effects of four diet types (Keto, Low-Carb, Standard, Control) and Ozempic on weight loss, HOMA-IR, and fasting insulin over 12 weeks using R, SQL, and Tableau Public.</p>
-    <p><a href="https://github.com/AlexanderGS0x/Low-Insulin-Diet-Study">View on GitHub</a></p>
-    <p><a href="low-insulin-diet-study/Low_Insulin_Diet_Study_Report.html">View R Markdown Report (HTML)</a></p>
-    <p><a href="low-insulin-diet-study/low_insulin_diet_bigquery_cleaned.csv">Download Dataset (CSV)</a></p>
-    <p><a href="low-insulin-diet-study/weight_over_time.png">View Weight Over Time Chart (PNG)</a></p>
-    <p><a href="low-insulin-diet-study/weight_loss_bar.png">View Weight Loss Bar Chart (PNG)</a></p>
-    <p><a href="https://public.tableau.com/app/profile/alexander.gallagher/viz/LowInsulinDietStudyVisualizations/DietStudyVisualizations">View Visualizations on Tableau Public</a></p>
-</div>   
-
-<div class="project">
+        <div class="project">
+            <h3>Stablecoin Analysis Project</h3>
+            <p>Analyzed the stability of four stablecoins (USDT, USDC, DAI, TUSD) using R, SQL, and Tableau Public. Includes data cleaning, statistical analysis, and interactive visualizations.</p>
+            <p><a href="https://github.com/AlexanderGS0x/Stablecoin-Analysis">View on GitHub</a></p>
+            <p><a href="https://public.tableau.com/app/profile/alexander.gallagher/viz/StablecoinAnalysisVisualizations/Dashboard1">View Visualizations on Tableau Public</a></p>
+        </div>
+        <div class="project">
+            <h3>Low Insulin Diet Study</h3>
+            <p>Analyzed the effects of four diet types (Keto, Low-Carb, Standard, Control) and Ozempic on weight loss, HOMA-IR, and fasting insulin over 12 weeks using R, SQL, and Tableau Public.</p>
+            <p><a href="https://github.com/AlexanderGS0x/Low-Insulin-Diet-Study">View on GitHub</a></p>
+            <p><a href="low-insulin-diet-study/Low_Insulin_Diet_Study_Report.html">View R Markdown Report (HTML)</a></p>
+            <p><a href="low-insulin-diet-study/low_insulin_diet_bigquery_cleaned.csv">Download Dataset (CSV)</a></p>
+            <p><a href="low-insulin-diet-study/weight_over_time.png">View Weight Over Time Chart (PNG)</a></p>
+            <p><a href="low-insulin-diet-study/weight_loss_bar.png">View Weight Loss Bar Chart (PNG)</a></p>
+            <p><a href="https://public.tableau.com/app/profile/alexander.gallagher/viz/LowInsulinDietStudyVisualizations/DietStudyVisualizations">View Visualizations on Tableau Public</a></p>
+        </div>
+        <div class="project">
             <h3>Creatine Study Report</h3>
             <p>Analyzed the effects of creatine supplementation on strength, resistance training, and cognitive performance using R, Google Sheets, and BigQuery for data cleaning and analysis.</p>
             <p><a href="https://github.com/AlexanderGS0x/Creatine-Study-Project">View on GitHub</a></p>
             <p><a href="creatine-study/creatine_study_report.html">View R Markdown Report (HTML)</a></p>
-            <p><a href="creatine-study/creatine_data_final(1).csv">Download Dataset (CSV)</a></p>
+            <p><a href="creatine-study/creatine_data_final.csv">Download Dataset (CSV)</a></p>
             <p><a href="creatine-study/visuals/bench_press_boxplot.png">View Bench Press Boxplot (PNG)</a></p>
             <p><a href="creatine-study/visuals/squat_boxplot.png">View Squat Boxplot (PNG)</a></p>
             <p><a href="creatine-study/visuals/repetitions_boxplot.png">View Repetitions Boxplot (PNG)</a></p>
@@ -120,12 +130,60 @@
         </div>
         <div class="project">
             <h3>Data Cleaning with BigQuery</h3>
-            <p>Used BigQuery to clean and preprocess datasets for both the Creatine Study and Low Insulin Diet Study, handling missing values and ensuring data consistency.</p>
-            <p>See the cleaned datasets in the respective project sections above.</p>
-        </div>     
+            <p>Used BigQuery to clean and preprocess datasets for both the Creatine Study and Low Insulin Diet Study, handling missing values and ensuring data consistency. Below are example SQL queries used for analysis and cleaning, along with a screenshot of the BigQuery interface.</p>
+            <h4>Example 1: Creatine Study - Calculate Average Changes and Group Differences</h4>
+            <p>Calculated the average change in metrics (bench press, squat, repetitions, memory score, reaction time) for each group (Creatine and Placebo), and computed the differences between groups to quantify the effect of creatine supplementation.</p>
+            <p><strong>Query 1: Average Changes by Group</strong></p>
+            <pre><code>SELECT
+  group,
+  AVG(bench_press_1rm_kg_post - bench_press_1rm_kg_pre) AS avg_bench_press_change_kg,
+  AVG(squat_1rm_kg_post - squat_1rm_kg_pre) AS avg_squat_change_kg,
+  AVG(repetitions_bench_post - repetitions_bench_pre) AS avg_repetitions_change,
+  AVG(memory_score_post - memory_score_pre) AS avg_memory_score_change,
+  AVG(reaction_time_ms_post - reaction_time_ms_pre) AS avg_reaction_time_change_ms
+FROM your_project.your_dataset.creatine_data
+GROUP BY group;</code></pre>
+            <p><strong>Query 2: Differences Between Creatine and Placebo Groups</strong></p>
+            <pre><code>WITH avg_changes AS (
+  SELECT
+    group,
+    AVG(bench_press_1rm_kg_post - bench_press_1rm_kg_pre) AS avg_bench_press_change_kg,
+    AVG(squat_1rm_kg_post - squat_1rm_kg_pre) AS avg_squat_change_kg,
+    AVG(repetitions_bench_post - repetitions_bench_pre) AS avg_repetitions_change,
+    AVG(memory_score_post - memory_score_pre) AS avg_memory_score_change,
+    AVG(reaction_time_ms_post - reaction_time_ms_pre) AS avg_reaction_time_change_ms
+  FROM your_project.your_dataset.creatine_data
+  GROUP BY group
+)
+SELECT
+  'Creatine - Placebo' AS comparison,
+  (SELECT avg_bench_press_change_kg FROM avg_changes WHERE group = 'Creatine') -
+    (SELECT avg_bench_press_change_kg FROM avg_changes WHERE group = 'Placebo') AS bench_press_diff_kg,
+  (SELECT avg_squat_change_kg FROM avg_changes WHERE group = 'Creatine') -
+    (SELECT avg_squat_change_kg FROM avg_changes WHERE group = 'Placebo') AS squat_diff_kg,
+  (SELECT avg_repetitions_change FROM avg_changes WHERE group = 'Creatine') -
+    (SELECT avg_repetitions_change FROM avg_changes WHERE group = 'Placebo') AS repetitions_diff,
+  (SELECT avg_memory_score_change FROM avg_changes WHERE group = 'Creatine') -
+    (SELECT avg_memory_score_change FROM avg_changes WHERE group = 'Placebo') AS memory_score_diff,
+  (SELECT avg_reaction_time_change_ms FROM avg_changes WHERE group = 'Creatine') -
+    (SELECT avg_reaction_time_change_ms FROM avg_changes WHERE group = 'Placebo') AS reaction_time_diff_ms;</code></pre>
+            <h4>Example 2: Low Insulin Diet Study - Filtering Invalid Data</h4>
+            <p>Removed invalid entries by filtering out negative weights and standardizing missing values in the <code>weight_kg</code> column.</p>
+            <pre><code>SELECT 
+  participant_id,
+  diet_type,
+  week,
+  IFNULL(weight_kg, 0) AS weight_kg,
+  homa_ir,
+  fasting_insulin
+FROM your_project.your_dataset.low_insulin_diet_data
+WHERE weight_kg >= 0;</code></pre>
+            <p><a href="bigquery_screenshot.png">View BigQuery Screenshot (PNG)</a></p>
+            <p>See the cleaned datasets in the respective project sections above: <a href="creatine-study/creatine_data_final.csv">Creatine Study Dataset</a>, <a href="low-insulin-diet-study/low_insulin_diet_bigquery_cleaned.csv">Low Insulin Diet Study Dataset</a>.</p>
+        </div>
         
-     <h2>Contact</h2>
-        <p>Connect with me on <a href="https://www.linkedin.com/in/alexander-gallagher">LinkedIn</a>
+        <h2>Contact</h2>
+        <p>Connect with me on <a href="https://www.linkedin.com/in/alexander-gallagher">LinkedIn</a> or email me at alexander.gallagher@example.com.</p>
     </div>
 </body>
 </html>
