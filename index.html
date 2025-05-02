@@ -85,12 +85,12 @@
             <h3>Athlete Training Analysis: Fast-Twitch vs. Slow-Twitch</h3>
             <p>Analyzed the impact of training focus (fast-twitch vs. slow-twitch muscle fibers) on speed, endurance, and recovery time for 100 athletes using R, Tableau, Google Sheets, and BigQuery. Includes statistical analysis, visualizations, and an interactive dashboard.</p>
             <p><a href="https://github.com/AlexanderGS0x/Athlete-Training-Analysis">View on GitHub</a></p>
-            <p><a href="projects/Athlete_Analysis_Report.html">View R Markdown Report (HTML)</a></p>
-            <p><a href="projects/athlete_training_data_cleaned.csv">Download Dataset (CSV)</a></p>
-            <p><a href="projects/speed_plot.png">View Speed Comparison Boxplot (PNG)</a></p>
-            <p><a href="projects/endurance_plot.png">View Endurance Comparison Boxplot (PNG)</a></p>
-            <p><a href="projects/scatter_plot.png">View Speed vs. Endurance Scatter Plot (PNG)</a></p>
-            <p><a href="https://public.tableau.com/app/profile/alexander.gallagher/viz/Athlete_Training_Comparison/Dashboard1">View Visualizations on Tableau Public</a></p>
+            <p><a href="Athlete-Training-Analysis/Athlete_Analysis_Report.html">View R Markdown Report (HTML)</a></p>
+            <p><a href="Athlete-Training-Analysis/athlete_training_data_cleaned.csv">Download Dataset (CSV)</a></p>
+            <p><a href="Athlete-Training-Analysis/speed_plot.png">View Speed Comparison Boxplot (PNG)</a></p>
+            <p><a href="Athlete-Training-Analysis/endurance_plot.png">View Endurance Comparison Boxplot (PNG)</a></p>
+            <p><a href="Athlete-Training-Analysis/scatter_plot.png">View Speed vs. Endurance Scatter Plot (PNG)</a></p>
+            <p><a href="https://public.tableau.com/views/Athlete_Training_Comparison/...">View Visualizations on Tableau Public</a> (replace with your actual Tableau Public link)</p>
         </div>
         <div class="project">
             <h3>Cyclistic Bike-Share Analysis</h3>
@@ -162,4 +162,39 @@ GROUP BY group;</code></pre>
     AVG(squat_1rm_kg_post - squat_1rm_kg_pre) AS avg_squat_change_kg,
     AVG(repetitions_bench_post - repetitions_bench_pre) AS avg_repetitions_change,
     AVG(memory_score_post - memory_score_pre) AS avg_memory_score_change,
-    AVG(reaction_time_ms_post - reaction
+    AVG(reaction_time_ms_post - reaction_time_ms_pre) AS avg_reaction_time_change_ms
+  FROM your_project.your_dataset.creatine_data
+  GROUP BY group
+)
+SELECT
+  'Creatine - Placebo' AS comparison,
+  (SELECT avg_bench_press_change_kg FROM avg_changes WHERE group = 'Creatine') -
+    (SELECT avg_bench_press_change_kg FROM avg_changes WHERE group = 'Placebo') AS bench_press_diff_kg,
+  (SELECT avg_squat_change_kg FROM avg_changes WHERE group = 'Creatine') -
+    (SELECT avg_squat_change_kg FROM avg_changes WHERE group = 'Placebo') AS squat_diff_kg,
+  (SELECT avg_repetitions_change FROM avg_changes WHERE group = 'Creatine') -
+    (SELECT avg_repetitions_change FROM avg_changes WHERE group = 'Placebo') AS repetitions_diff,
+  (SELECT avg_memory_score_change FROM avg_changes WHERE group = 'Creatine') -
+    (SELECT avg_memory_score_change FROM avg_changes WHERE group = 'Placebo') AS memory_score_diff,
+  (SELECT avg_reaction_time_change_ms FROM avg_changes WHERE group = 'Creatine') -
+    (SELECT avg_reaction_time_change_ms FROM avg_changes WHERE group = 'Placebo') AS reaction_time_diff_ms;</code></pre>
+            <h4>Example 2: Low Insulin Diet Study - Filtering Invalid Data</h4>
+            <p>Removed invalid entries by filtering out negative weights and standardizing missing values in the <code>weight_kg</code> column.</p>
+            <pre><code>SELECT 
+  participant_id,
+  diet_type,
+  week,
+  IFNULL(weight_kg, 0) AS weight_kg,
+  homa_ir,
+  fasting_insulin
+FROM your_project.your_dataset.low_insulin_diet_data
+WHERE weight_kg >= 0;</code></pre>
+            <p><a href="bigquery_screenshot.png">View BigQuery Screenshot (PNG)</a></p>
+            <p>See the cleaned datasets in the respective project sections above: <a href="creatine-study/creatine_data_final.csv">Creatine Study Dataset</a>, <a href="low-insulin-diet-study/low_insulin_diet_bigquery_cleaned.csv">Low Insulin Diet Study Dataset</a>.</p>
+        </div>
+        
+        <h2>Contact</h2>
+        <p>Connect with me on <a href="https://www.linkedin.com/in/alexander-gallagher">LinkedIn</a> or email me at alexander.gallagher@example.com.</p>
+    </div>
+</body>
+</html>
