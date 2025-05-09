@@ -134,12 +134,41 @@
         </div>
         <div class="project">
             <h3>Meme Coins Performance Tracker</h3>
-            <p>Analysis of top meme coins with Python, SQL, R, and Tableau.</p>
-            <p>
-                <a href="https://github.com/alexandergs0x/meme-coins-tracker">GitHub</a> | 
-                <a href="https://alexandergs0x.github.io/meme-coins-tracker">Report</a>
-            </p>
+            <p>Analyzed the performance of top meme coins (e.g., Dogwifcoin, Floki, Pepe) from November 2024 to May 2025 using Python, SQL, R, and Tableau. Includes data fetching, processing, analysis, visualizations, and investment recommendations.</p>
+            <p><a href="https://github.com/alexandergs0x/meme-coins-tracker">View on GitHub</a></p>
+            <p><a href="meme-coins-tracker/meme_coins_report.html">View R Markdown Report (HTML)</a></p>
+            <p><a href="meme-coins-tracker/meme_coins_results.csv">Download Results Dataset (CSV)</a></p>
+            <p><a href="meme-coins-tracker/price_trends.png">View Price Trends Plot (PNG)</a></p>
+            <p><a href="meme-coins-tracker/price_change_bar.png">View Price Change Bar Chart (PNG)</a></p>
+            <p><a href="meme-coins-tracker/price_volume_scatter.png">View Price vs. Volume Scatter Plot (PNG)</a></p>
+            <p><a href="meme-coins-tracker/daily_change_boxplot.png">View Daily Change Boxplot (PNG)</a></p>
+            <p><a href="meme-coins-tracker/volatility_bar.png">View Volatility Bar Chart (PNG)</a></p>
+            <p><a href="meme-coins-tracker/recommendations.txt">View Investment Recommendations (TXT)</a></p>
             <p><a href="https://public.tableau.com/views/MemeCoinsPerformanceTracker/MemeCoinsPerformanceTracker?:language=en-US">View Tableau Dashboard</a></p>
+            <h4>Data Processing with BigQuery</h4>
+            <p>Used BigQuery to clean and process meme coin data, removing duplicates and calculating daily price changes. Below are the SQL queries used for data processing.</p>
+            <p><strong>Query 1: Remove Duplicates and Clean Data</strong></p>
+            <pre><code>-- Remove duplicates
+CREATE OR REPLACE TABLE `meme_coins_dataset.meme_coins_cleaned` AS
+SELECT DISTINCT coin, date, price_usd, volume_usd
+FROM `meme_coins_dataset.meme_coins_raw`;</code></pre>
+            <p><strong>Query 2: Calculate Daily Price Changes</strong></p>
+            <pre><code>-- Calculate daily price changes
+CREATE OR REPLACE TABLE `meme_coins_dataset.meme_coins_processed` AS
+SELECT
+    coin,
+    date,
+    price_usd,
+    volume_usd,
+    LAG(price_usd) OVER (PARTITION BY coin ORDER BY date) AS previous_price,
+    SAFE_DIVIDE(price_usd - LAG(price_usd) OVER (PARTITION BY coin ORDER BY date),
+                LAG(price_usd) OVER (PARTITION BY coin ORDER BY date)) * 100 AS daily_price_change_pct
+FROM `meme_coins_dataset.meme_coins_cleaned`
+ORDER BY coin, date;</code></pre>
+            <p><strong>Scripts</strong></p>
+            <p><a href="meme-coins-tracker/fetch_meme_coins.py">View Data Fetching Script (Python)</a></p>
+            <p><a href="meme-coins-tracker/process_data.sql">View Data Processing Script (SQL)</a></p>
+            <p><a href="meme-coins-tracker/analyze_data.R">View Analysis Script (R)</a></p>
         </div>
         
         <h2>Additional Work</h2>
@@ -203,7 +232,7 @@ WHERE weight_kg >= 0;</code></pre>
         </div>
         
         <h2>Contact</h2>
-        <p>Connect with me on <a href="https://www.linkedin.com/in/alexander-gallagher">LinkedIn</a> or email me at alexandergs0x@protonmail.com .</p>
+        <p>Connect with me on <a href="https://www.linkedin.com/in/alexander-gallagher">LinkedIn</a> or email me at alexandergs0x@protonmail.com.</p>
     </div>
 </body>
 </html>
