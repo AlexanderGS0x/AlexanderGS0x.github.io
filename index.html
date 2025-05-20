@@ -117,7 +117,189 @@ ORDER BY Date;</code></pre>
             <p><strong>Query 3: View Processed Data</strong></p>
             <pre><code>SELECT * FROM safe_haven_data.processed_data_sorted</code></pre>
         </div>
-        <!-- Rest of the project sections remain unchanged -->
+        <div class="project">
+            <h3>Athlete Training Analysis: Fast-Twitch vs. Slow-Twitch</h3>
+            <p>Analyzed the impact of training focus (fast-twitch vs. slow-twitch muscle fibers) on speed, endurance, and recovery time for 100 athletes using R, Tableau, Google Sheets, and BigQuery. Includes statistical analysis, visualizations, and an interactive dashboard.</p>
+            <p><a href="https://github.com/AlexanderGS0x/Athlete-Training-Analysis">View on GitHub</a></p>
+            <p><a href="Athlete-Training-Analysis/Athlete_Analysis_Report.html">View R Markdown Report (HTML)</a></p>
+            <p><a href="Athlete-Training-Analysis/athlete_training_data_cleaned.csv">Download Dataset (CSV)</a></p>
+            <p><a href="Athlete-Training-Analysis/speed_plot.png">View Speed Comparison Boxplot (PNG)</a></p>
+            <p><a href="Athlete-Training-Analysis/endurance_plot.png">View Endurance Comparison Boxplot (PNG)</a></p>
+            <p><a href="Athlete-Training-Analysis/scatter_plot.png">View Speed vs. Endurance Scatter Plot (PNG)</a></p>
+            <p><a href="https://public.tableau.com/app/profile/alexander.gallagher/viz/Athlete_Training_Comparison/Dashboard1">View Visualizations on Tableau Public</a></p>
+        </div>
+        <div class="project">
+            <h3>Cyclistic Bike-Share Analysis</h3>
+            <p>Capstone project for the Google Data Analytics Certificate. Analyzed bike-share data to compare casual riders and annual members, proposing marketing strategies.</p>
+            <p><a href="https://github.com/AlexanderGS0x/Cyclistic-Capstone">View on GitHub</a></p>
+            <p><a href="https://github.com/AlexanderGS0x/Cyclistic-Capstone/raw/main/CyclisticReport.pdf">Download Report (PDF)</a></p>
+        </div>
+        <div class="project">
+            <h3>Online Retail Customer Retention Analysis</h3>
+            <p>Analyzed customer retention for an online retail business, identifying patterns and proposing strategies to improve loyalty.</p>
+            <p><a href="https://github.com/AlexanderGS0x/Online-Retail-Retention-Analysis">View on GitHub</a></p>
+            <p><a href="https://github.com/AlexanderGS0x/Online-Retail-Retention-Analysis/raw/main/OnlineRetailAnalysis.html">View Report (HTML)</a></p>
+        </div>
+        <div class="project">
+            <h3>Stablecoin Analysis Project</h3>
+            <p>Analyzed the stability of four stablecoins (USDT, USDC, DAI, TUSD) using R, SQL, and Tableau Public. Includes data cleaning, statistical analysis, and interactive visualizations.</p>
+            <p><a href="https://github.com/AlexanderGS0x/Stablecoin-Analysis">View on GitHub</a></p>
+            <p><a href="https://public.tableau.com/app/profile/alexander.gallagher/viz/StablecoinAnalysisVisualizations/Dashboard1">View Visualizations on Tableau Public</a></p>
+        </div>
+        <div class="project">
+            <h3>Low Insulin Diet Study</h3>
+            <p>Analyzed the effects of four diet types (Keto, Low-Carb, Standard, Control) and Ozempic on weight loss, HOMA-IR, and fasting insulin over 12 weeks using R, SQL, and Tableau Public.</p>
+            <ul>
+                <li><a href="https://github.com/AlexanderGS0x/Low-Insulin-Diet-Study">GitHub Repository</a></li>
+                <li><a href="low-insulin-diet-study/Low_Insulin_Diet_Study_Report.html">View R Markdown Report (HTML)</a></li>
+                <li><a href="low-insulin-diet-study/low_insulin_diet_bigquery_cleaned.csv">Download Dataset (CSV)</a></li>
+                <li><a href="low-insulin-diet-study/weight_over_time.png">View Weight Over Time Chart (PNG)</a></li>
+                <li><a href="low-insulin-diet-study/weight_loss_bar.png">View Weight Loss Bar Chart (PNG)</a></li>
+                <li><a href="https://public.tableau.com/app/profile/alexander.gallagher/viz/LowInsulinDietStudyVisualizations/DietStudyVisualizations">View Visualizations on Tableau Public</a></li>
+            </ul>
+            <h4>Data Cleaning with BigQuery</h4>
+            <p>Used BigQuery to clean and preprocess the dataset for the Low Insulin Diet Study, handling missing values and ensuring data consistency.</p>
+            <h5>Filtering Invalid Data</h5>
+            <p>Removed invalid entries by filtering out negative weights and standardizing missing values in the <code>weight_kg</code> column.</p>
+            <pre><code>SELECT 
+  participant_id,
+  diet_type,
+  week,
+  IFNULL(weight_kg, 0) AS weight_kg,
+  homa_ir,
+  fasting_insulin
+FROM your_project.your_dataset.low_insulin_diet_data
+WHERE weight_kg >= 0;</code></pre>
+            <p>See the cleaned dataset: <a href="low-insulin-diet-study/low_insulin_diet_bigquery_cleaned.csv">Low Insulin Diet Study Dataset</a>.</p>
+        </div>
+        <div class="project">
+            <h3>Creatine Study Report</h3>
+            <p>Analyzed the effects of creatine supplementation on strength, resistance training, and cognitive performance using R, Google Sheets, and BigQuery for data cleaning and analysis.</p>
+            <ul>
+                <li><a href="https://github.com/AlexanderGS0x/Creatine-Study-Project">GitHub Repository</a></li>
+                <li><a href="creatine-study/creatine_study_report.html">View R Markdown Report (HTML)</a></li>
+                <li><a href="creatine-study/creatine_data_final.csv">Download Dataset (CSV)</a></li>
+                <li><a href="creatine-study/visuals/bench_press_boxplot.png">View Bench Press Boxplot (PNG)</a></li>
+                <li><a href="creatine-study/visuals/squat_boxplot.png">View Squat Boxplot (PNG)</a></li>
+                <li><a href="creatine-study/visuals/repetitions_boxplot.png">View Repetitions Boxplot (PNG)</a></li>
+                <li><a href="creatine-study/visuals/memory_score_boxplot.png">View Memory Score Boxplot (PNG)</a></li>
+                <li><a href="creatine-study/visuals/reaction_time_boxplot.png">View Reaction Time Boxplot (PNG)</a></li>
+            </ul>
+            <h4>Google Sheets Visualization</h4>
+            <p>A chart created in Google Sheets to visualize data trends during initial data exploration for the Creatine Study.</p>
+            <p><a href="google_sheets_chart_screenshot.png">View Chart Screenshot (PNG)</a></p>
+            <h4>Data Cleaning with BigQuery</h4>
+            <p>Used BigQuery to clean and preprocess the dataset for the Creatine Study, handling missing values and ensuring data consistency. Below are example SQL queries used for analysis and cleaning, along with a screenshot of the BigQuery interface.</p>
+            <h5>Example: Creatine Study - Calculate Average Changes and Group Differences</h5>
+            <p>Calculated the average change in metrics (bench press, squat, repetitions, memory score, reaction time) for each group (Creatine and Placebo), and computed the differences between groups to quantify the effect of creatine supplementation.</p>
+            <p><strong>Query 1: Average Changes by Group</strong></p>
+            <pre><code>SELECT
+  group,
+  AVG(bench_press_1rm_kg_post - bench_press_1rm_kg_pre) AS avg_bench_press_change_kg,
+  AVG(squat_1rm_kg_post - squat_1rm_kg_pre) AS avg_squat_change_kg,
+  AVG(repetitions_bench_post - repetitions_bench_pre) AS avg_repetitions_change,
+  AVG(memory_score_post - memory_score_pre) AS avg_memory_score_change,
+  AVG(reaction_time_ms_post - reaction_time_ms_pre) AS avg_reaction_time_change_ms
+FROM your_project.your_dataset.creatine_data
+GROUP BY group;</code></pre>
+            <p><strong>Query 2: Differences Between Creatine and Placebo Groups</strong></p>
+            <pre><code>WITH avg_changes AS (
+  SELECT
+    group,
+    AVG(bench_press_1rm_kg_post - bench_press_1rm_kg_pre) AS avg_bench_press_change_kg,
+    AVG(squat_1rm_kg_post - squat_1rm_kg_pre) AS avg_squat_change_kg,
+    AVG(repetitions_bench_post - repetitions_bench_pre) AS avg_repetitions_change,
+    AVG(memory_score_post - memory_score_pre) AS avg_memory_score_change,
+    AVG(reaction_time_ms_post - reaction_time_ms_pre) AS avg_reaction_time_change_ms
+  FROM your_project.your_dataset.creatine_data
+  GROUP BY group
+)
+SELECT
+  'Creatine - Placebo' AS comparison,
+  (SELECT avg_bench_press_change_kg FROM avg_changes WHERE group = 'Creatine') -
+    (SELECT avg_bench_press_change_kg FROM avg_changes WHERE group = 'Placebo') AS bench_press_diff_kg,
+  (SELECT avg_squat_change_kg FROM avg_changes WHERE group = 'Creatine') -
+    (SELECT avg_squat_change_kg FROM avg_changes WHERE group = 'Placebo') AS squat_diff_kg,
+  (SELECT avg_repetitions_change FROM avg_changes WHERE group = 'Creatine') -
+    (SELECT avg_repetitions_change FROM avg_changes WHERE group = 'Placebo') AS repetitions_diff,
+  (SELECT avg_memory_score_change FROM avg_changes WHERE group = 'Creatine') -
+    (SELECT avg_memory_score_change FROM avg_changes WHERE group = 'Placebo') AS memory_score_diff,
+  (SELECT avg_reaction_time_ms_post - reaction_time_ms_pre FROM avg_changes WHERE group = 'Creatine') -
+    (SELECT avg_reaction_time_ms_post - reaction_time_ms_pre FROM avg_changes WHERE group = 'Placebo') AS reaction_time_diff_ms;</code></pre>
+            <p><a href="bigquery_screenshot.png">View BigQuery Screenshot (PNG)</a></p>
+            <p>See the cleaned dataset: <a href="creatine-study/creatine_data_final.csv">Creatine Study Dataset</a>.</p>
+        </div>
+        <div class="project">
+            <h3>Meme Coins Performance Tracker</h3>
+            <p>Analyzed the performance of top meme coins (e.g., Dogwifcoin, Floki, Pepe) from November 2024 to May 2025 using Python, SQL, R, and Tableau. Includes data fetching, processing, analysis, visualizations, and investment recommendations.</p>
+            <p><a href="https://github.com/alexandergs0x/meme-coins-tracker">View on GitHub</a></p>
+            <p><a href="meme-coins-tracker/meme_coins_report.html">View R Markdown Report (HTML)</a></p>
+            <p><a href="meme-coins-tracker/meme_coins_results.csv">Download Results Dataset (CSV)</a></p>
+            <p><a href="meme-coins-tracker/price_trends.png">View Price Trends Plot (PNG)</a></p>
+            <p><a href="meme-coins-tracker/price_change_bar.png">View Price Change Bar Chart (PNG)</a></p>
+            <p><a href="meme-coins-tracker/price_volume_scatter.png">View Price vs. Volume Scatter Plot (PNG)</a></p>
+            <p><a href="meme-coins-tracker/daily_change_boxplot.png">View Daily Change Boxplot (PNG)</a></p>
+            <p><a href="meme-coins-tracker/volatility_bar.png">View Volatility Bar Chart (PNG)</a></p>
+            <p><a href="https://public.tableau.com/views/MemeCoinsPerformanceTracker/MemeCoinsPerformanceTracker?:language=en-US">View Tableau Dashboard</a></p>
+            <h4>Data Processing with BigQuery</h4>
+            <p>Used BigQuery to clean and process meme coin data, removing duplicates and calculating daily price changes. Below are the SQL queries used for data processing.</p>
+            <p><strong>Query 1: Remove Duplicates and Clean Data</strong></p>
+            <pre><code>-- Remove duplicates
+CREATE OR REPLACE TABLE `meme_coins_dataset.meme_coins_cleaned` AS
+SELECT DISTINCT coin, date, price_usd, volume_usd
+FROM `meme_coins_dataset.meme_coins_raw`;</code></pre>
+            <p><strong>Query 2: Calculate Daily Price Changes</strong></p>
+            <pre><code>-- Calculate daily price changes
+CREATE OR REPLACE TABLE `meme_coins_dataset.meme_coins_processed` AS
+SELECT
+    coin,
+    date,
+    price_usd,
+    volume_usd,
+    LAG(price_usd) OVER (PARTITION BY coin ORDER BY date) AS previous_price,
+    SAFE_DIVIDE(price_usd - LAG(price_usd) OVER (PARTITION BY coin ORDER BY date),
+                LAG(price_usd) OVER (PARTITION BY coin ORDER BY date)) * 100 AS daily_price_change_pct
+FROM `meme_coins_dataset.meme_coins_cleaned`
+ORDER BY coin, date;</code></pre>
+            <p><strong>Scripts</strong></p>
+            <p><a href="meme-coins-tracker/fetch_meme_coins.py">View Data Fetching Script (Python)</a></p>
+            <p><a href="meme-coins-tracker/process_data.sql">View Data Processing Script (SQL)</a></p>
+            <p><a href="meme-coins-tracker/analyze_data.R">View Analysis Script (R)</a></p>
+        </div>
+        <div class="project">
+            <h3>DeFi TVL Explorer</h3>
+            <p>Analyzed Total Value Locked (TVL) growth for eight DeFi protocols (Uniswap, Aave, Maple, Compound, Lido, EigenLayer, Curve, Ethena) from Q1 2024 to Q1 2025 to identify the fastest-growing protocol. Used Python for data fetching, Google Sheets for cleaning, BigQuery for growth calculations, R for visualizations, and Tableau for an interactive dashboard.</p>
+            <ul>
+                <li><a href="https://github.com/alexandergs0x/AlexanderGS0x.github.io/tree/main/defi-tvl-explorer">GitHub Repository</a></li>
+                <li><a href="https://public.tableau.com/views/DeFiTVLExplorer/Dashboard1">Tableau Dashboard</a></li>
+                <li><a href="defi-tvl-explorer/tvl_report.html">Project Report (HTML)</a></li>
+                <li><a href="defi-tvl-explorer/tvl_growth_results.csv">Growth Results Dataset (CSV)</a></li>
+                <li><a href="defi-tvl-explorer/cleaned_defi_tvl_data.csv">Cleaned Dataset (CSV)</a></li>
+                <li><a href="defi-tvl-explorer/defi_tvl_data.csv">Raw Dataset (CSV)</a></li>
+                <li><a href="defi-tvl-explorer/tvl_trends_line_plot.png">TVL Trends Plot (PNG)</a></li>
+                <li><a href="defi-tvl-explorer/tvl_growth_bar_plot.png">Growth Bar Plot (PNG)</a></li>
+                <li><a href="defi-tvl-explorer/defi_tvl_fetch.ipynb">Python Notebook</a></li>
+                <li><a href="defi-tvl-explorer/tvl_growth.sql">SQL Query</a></li>
+                <li><a href="defi-tvl-explorer/tvl_analysis.R">R Script</a></li>
+            </ul>
+            <h4>Key Findings</h4>
+            <ul>
+                <li><b>Ethena</b> led with 1083.8% TVL growth, driven by its yield-bearing USDe stablecoin and institutional investments.</li>
+                <li><b>Uniswap</b> remained stable (1.57% growth), reflecting its dominance as a decentralized exchange.</li>
+                <li><b>Lido</b> saw a 9.71% TVL decline, likely due to a Bybit hack and competition from EigenLayer.</li>
+            </ul>
+            <h4>BigQuery Processing</h4>
+            <p>Used BigQuery to calculate TVL growth percentages for each protocol. Below is the SQL query used:</p>
+            <p><strong>Query: Calculate TVL Growth Percentages</strong></p>
+            <pre><code>SELECT
+    Protocol,
+    (MAX(CASE WHEN Date = '2025-03-31' THEN TVL_USD END) /
+     MAX(CASE WHEN Date = '2024-03-31' THEN TVL_USD END) - 1) * 100 AS growth_percentage
+FROM `defi-tvl-project.defi_data.cleaned_defi_tvl`
+WHERE Date IN ('2024-03-31', '2025-03-31')
+GROUP BY Protocol
+ORDER BY growth_percentage DESC;</code></pre>
+        </div>
         
         <h2>Contact</h2>
         <p>Connect with me on <a href="https://www.linkedin.com/in/alexander-gallagher">LinkedIn</a> or email me at alexandergs0x@protonmail.com.</p>
