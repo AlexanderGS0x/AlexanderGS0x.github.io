@@ -71,4 +71,56 @@
             .header h1 {
                 font-size: 1.8em;
                 padding: 0 10px;
-                text
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header"></div>
+    <div class="content">
+        <p>Welcome to my portfolio! I'm a data analyst passionate about turning data into actionable insights using R, SQL, Tableau, and Google Sheets. Explore my projects to see how I solve real-world problems with data.</p>
+        
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>Bitcoin vs. Gold: Safe Haven Showdown (2015-2025)</h3>
+            <p>A data analysis project comparing Bitcoin and gold as safe haven assets over 10 years. Data was sourced from Blockchain.com (Bitcoin) and Alpha Vantage (GLD ETF for gold), cleaned in Google Sheets, processed in BigQuery, analyzed in R, and visualized in Tableau.</p>
+            <ul>
+                <li><a href="https://github.com/alexandergs0x/Bitcoin_vs_Gold_Analysis">GitHub Repository</a></li>
+                <li><a href="https://public.tableau.com/app/profile/alexander.gallagher/viz/Bitcoinvs_GoldSafeHavenAnalysis2015-2025/BitcoinvsGoldDashboard">Tableau Dashboard</a></li>
+                <li><a href="Bitcoin_vs_Gold_Analysis/bitcoin_vs_gold_report_10years.html">HTML Report</a></li>
+                <li><a href="Bitcoin_vs_Gold_Analysis/bitcoin_vs_gold_raw_10years.csv">Raw Dataset (CSV)</a></li>
+                <li><a href="Bitcoin_vs_Gold_Analysis/bitcoin_vs_gold_processed_10years.csv">Processed Dataset (CSV)</a></li>
+                <li><a href="Bitcoin_vs_Gold_Analysis/bitcoin_vs_gold_analyzed_10years.csv">Analyzed Dataset (CSV)</a></li>
+            </ul>
+            <h4>BigQuery Processing</h4>
+            <p>Used BigQuery to process data, calculating weekly returns for Bitcoin and gold. Below are the SQL queries used:</p>
+            <p><strong>Query 1: Calculate Weekly Returns</strong></p>
+            <pre><code>SELECT
+  Date,
+  Bitcoin_Price,
+  Gold_Price,
+  (Bitcoin_Price / LAG(Bitcoin_Price) OVER (ORDER BY Date) - 1) * 100 AS Bitcoin_Weekly_Return,
+  (Gold_Price / LAG(Gold_Price) OVER (ORDER BY Date) - 1) * 100 AS Gold_Weekly_Return
+FROM `bitcoin-vs-gold-project-10y.safe_haven_data.raw_data`
+ORDER BY Date;</code></pre>
+            <p><strong>Query 2: Create Processed Table</strong></p>
+            <pre><code>CREATE OR REPLACE TABLE `bitcoin-vs-gold-project-10y.safe_haven_data.processed_data_sorted` AS
+SELECT
+  Date,
+  Bitcoin_Price,
+  Gold_Price,
+  (Bitcoin_Price / LAG(Bitcoin_Price) OVER (ORDER BY Date) - 1) * 100 AS Bitcoin_Weekly_Return,
+  (Gold_Price / LAG(Gold_Price) OVER (ORDER BY Date) - 1) * 100 AS Gold_Weekly_Return
+FROM `bitcoin-vs-gold-project-10y.safe_haven_data.raw_data`
+ORDER BY Date;</code></pre>
+            <p><strong>Query 3: View Processed Data</strong></p>
+            <pre><code>SELECT * FROM safe_haven_data.processed_data_sorted</code></pre>
+        </div>
+        <!-- Rest of the project sections remain unchanged -->
+        
+        <h2>Contact</h2>
+        <p>Connect with me on <a href="https://www.linkedin.com/in/alexander-gallagher">LinkedIn</a> or email me at alexandergs0x@protonmail.com.</p>
+    </div>
+</body>
+</html>
