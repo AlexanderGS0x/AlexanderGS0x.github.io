@@ -148,12 +148,28 @@ ORDER BY Date;</code></pre>
         <div class="project">
             <h3>Low Insulin Diet Study</h3>
             <p>Analyzed the effects of four diet types (Keto, Low-Carb, Standard, Control) and Ozempic on weight loss, HOMA-IR, and fasting insulin over 12 weeks using R, SQL, and Tableau Public.</p>
-            <p><a href="https://github.com/AlexanderGS0x/Low-Insulin-Diet-Study">View on GitHub</a></p>
-            <p><a href="low-insulin-diet-study/Low_Insulin_Diet_Study_Report.html">View R Markdown Report (HTML)</a></p>
-            <p><a href="low-insulin-diet-study/low_insulin_diet_bigquery_cleaned.csv">Download Dataset (CSV)</a></p>
-            <p><a href="low-insulin-diet-study/weight_over_time.png">View Weight Over Time Chart (PNG)</a></p>
-            <p><a href="low-insulin-diet-study/weight_loss_bar.png">View Weight Loss Bar Chart (PNG)</a></p>
-            <p><a href="https://public.tableau.com/app/profile/alexander.gallagher/viz/LowInsulinDietStudyVisualizations/DietStudyVisualizations">View Visualizations on Tableau Public</a></p>
+            <ul>
+                <li><a href="https://github.com/AlexanderGS0x/Low-Insulin-Diet-Study">GitHub Repository</a></li>
+                <li><a href="low-insulin-diet-study/Low_Insulin_Diet_Study_Report.html">View R Markdown Report (HTML)</a></li>
+                <li><a href="low-insulin-diet-study/low_insulin_diet_bigquery_cleaned.csv">Download Dataset (CSV)</a></li>
+                <li><a href="low-insulin-diet-study/weight_over_time.png">View Weight Over Time Chart (PNG)</a></li>
+                <li><a href="low-insulin-diet-study/weight_loss_bar.png">View Weight Loss Bar Chart (PNG)</a></li>
+                <li><a href="https://public.tableau.com/app/profile/alexander.gallagher/viz/LowInsulinDietStudyVisualizations/DietStudyVisualizations">View Visualizations on Tableau Public</a></li>
+            </ul>
+            <h4>Data Cleaning with BigQuery</h4>
+            <p>Used BigQuery to clean and preprocess the dataset for the Low Insulin Diet Study, handling missing values and ensuring data consistency.</p>
+            <h5>Filtering Invalid Data</h5>
+            <p>Removed invalid entries by filtering out negative weights and standardizing missing values in the <code>weight_kg</code> column.</p>
+            <pre><code>SELECT 
+  participant_id,
+  diet_type,
+  week,
+  IFNULL(weight_kg, 0) AS weight_kg,
+  homa_ir,
+  fasting_insulin
+FROM your_project.your_dataset.low_insulin_diet_data
+WHERE weight_kg >= 0;</code></pre>
+            <p>See the cleaned dataset: <a href="low-insulin-diet-study/low_insulin_diet_bigquery_cleaned.csv">Low Insulin Diet Study Dataset</a>.</p>
         </div>
         <div class="project">
             <h3>Creatine Study Report</h3>
