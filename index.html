@@ -25,19 +25,16 @@
         .header {
             width: 100%;
             height: 300px;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/portfolio_banner.jpg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/portfolio_banner.jpg');
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
+            image-rendering: auto; /* Ensures crisp rendering */
+            filter: saturate(1.2) contrast(1.1); /* Boosts color vibrancy */
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
         .content {
             max-width: 1000px;
@@ -66,16 +63,11 @@
             .header {
                 height: 200px;
             }
-            .header h1 {
-                font-size: 1.8em;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Alexander - Data Analytics Portfolio</h1>
-    </div>
+    <div class="header"></div>
     <div class="content">
         <p>Welcome to my portfolio! I’m a data analyst passionate about turning data into actionable insights using R, SQL, Tableau, and Google Sheets. Explore my projects to see how I solve real-world problems with data.</p>
         
