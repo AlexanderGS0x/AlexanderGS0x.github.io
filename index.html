@@ -158,14 +158,59 @@ ORDER BY Date;</code></pre>
         <div class="project">
             <h3>Creatine Study Report</h3>
             <p>Analyzed the effects of creatine supplementation on strength, resistance training, and cognitive performance using R, Google Sheets, and BigQuery for data cleaning and analysis.</p>
-            <p><a href="https://github.com/AlexanderGS0x/Creatine-Study-Project">View on GitHub</a></p>
-            <p><a href="creatine-study/creatine_study_report.html">View R Markdown Report (HTML)</a></p>
-            <p><a href="creatine-study/creatine_data_final.csv">Download Dataset (CSV)</a></p>
-            <p><a href="creatine-study/visuals/bench_press_boxplot.png">View Bench Press Boxplot (PNG)</a></p>
-            <p><a href="creatine-study/visuals/squat_boxplot.png">View Squat Boxplot (PNG)</a></p>
-            <p><a href="creatine-study/visuals/repetitions_boxplot.png">View Repetitions Boxplot (PNG)</a></p>
-            <p><a href="creatine-study/visuals/memory_score_boxplot.png">View Memory Score Boxplot (PNG)</a></p>
-            <p><a href="creatine-study/visuals/reaction_time_boxplot.png">View Reaction Time Boxplot (PNG)</a></p>
+            <ul>
+                <li><a href="https://github.com/AlexanderGS0x/Creatine-Study-Project">GitHub Repository</a></li>
+                <li><a href="creatine-study/creatine_study_report.html">View R Markdown Report (HTML)</a></li>
+                <li><a href="creatine-study/creatine_data_final.csv">Download Dataset (CSV)</a></li>
+                <li><a href="creatine-study/visuals/bench_press_boxplot.png">View Bench Press Boxplot (PNG)</a></li>
+                <li><a href="creatine-study/visuals/squat_boxplot.png">View Squat Boxplot (PNG)</a></li>
+                <li><a href="creatine-study/visuals/repetitions_boxplot.png">View Repetitions Boxplot (PNG)</a></li>
+                <li><a href="creatine-study/visuals/memory_score_boxplot.png">View Memory Score Boxplot (PNG)</a></li>
+                <li><a href="creatine-study/visuals/reaction_time_boxplot.png">View Reaction Time Boxplot (PNG)</a></li>
+            </ul>
+            <h4>Google Sheets Visualization</h4>
+            <p>A chart created in Google Sheets to visualize data trends during initial data exploration for the Creatine Study.</p>
+            <p><a href="google_sheets_chart_screenshot.png">View Chart Screenshot (PNG)</a></p>
+            <h4>Data Cleaning with BigQuery</h4>
+            <p>Used BigQuery to clean and preprocess the dataset for the Creatine Study, handling missing values and ensuring data consistency. Below are example SQL queries used for analysis and cleaning, along with a screenshot of the BigQuery interface.</p>
+            <h5>Example: Creatine Study - Calculate Average Changes and Group Differences</h5>
+            <p>Calculated the average change in metrics (bench press, squat, repetitions, memory score, reaction time) for each group (Creatine and Placebo), and computed the differences between groups to quantify the effect of creatine supplementation.</p>
+            <p><strong>Query 1: Average Changes by Group</strong></p>
+            <pre><code>SELECT
+  group,
+  AVG(bench_press_1rm_kg_post - bench_press_1rm_kg_pre) AS avg_bench_press_change_kg,
+  AVG(squat_1rm_kg_post - squat_1rm_kg_pre) AS avg_squat_change_kg,
+  AVG(repetitions_bench_post - repetitions_bench_pre) AS avg_repetitions_change,
+  AVG(memory_score_post - memory_score_pre) AS avg_memory_score_change,
+  AVG(reaction_time_ms_post - reaction_time_ms_pre) AS avg_reaction_time_change_ms
+FROM your_project.your_dataset.creatine_data
+GROUP BY group;</code></pre>
+            <p><strong>Query 2: Differences Between Creatine and Placebo Groups</strong></p>
+            <pre><code>WITH avg_changes AS (
+  SELECT
+    group,
+    AVG(bench_press_1rm_kg_post - bench_press_1rm_kg_pre) AS avg_bench_press_change_kg,
+    AVG(squat_1rm_kg_post - squat_1rm_kg_pre) AS avg_squat_change_kg,
+    AVG(repetitions_bench_post - repetitions_bench_pre) AS avg_repetitions_change,
+    AVG(memory_score_post - memory_score_pre) AS avg_memory_score_change,
+    AVG(reaction_time_ms_post - reaction_time_ms_pre) AS avg_reaction_time_change_ms
+  FROM your_project.your_dataset.creatine_data
+  GROUP BY group
+)
+SELECT
+  'Creatine - Placebo' AS comparison,
+  (SELECT avg_bench_press_change_kg FROM avg_changes WHERE group = 'Creatine') -
+    (SELECT avg_bench_press_change_kg FROM avg_changes WHERE group = 'Placebo') AS bench_press_diff_kg,
+  (SELECT avg_squat_change_kg FROM avg_changes WHERE group = 'Creatine') -
+    (SELECT avg_squat_change_kg FROM avg_changes WHERE group = 'Placebo') AS squat_diff_kg,
+  (SELECT avg_repetitions_change FROM avg_changes WHERE group = 'Creatine') -
+    (SELECT avg_repetitions_change FROM avg_changes WHERE group = 'Placebo') AS repetitions_diff,
+  (SELECT avg_memory_score_change FROM avg_changes WHERE group = 'Creatine') -
+    (SELECT avg_memory_score_change FROM avg_changes WHERE group = 'Placebo') AS memory_score_diff,
+  (SELECT avg_reaction_time_ms_post - reaction_time_ms_pre FROM avg_changes WHERE group = 'Creatine') -
+    (SELECT avg_reaction_time_ms_post - reaction_time_ms_pre FROM avg_changes WHERE group = 'Placebo') AS reaction_time_diff_ms;</code></pre>
+            <p><a href="bigquery_screenshot.png">View BigQuery Screenshot (PNG)</a></p>
+            <p>See the cleaned dataset: <a href="creatine-study/creatine_data_final.csv">Creatine Study Dataset</a>.</p>
         </div>
         <div class="project">
             <h3>Meme Coins Performance Tracker</h3>
@@ -237,66 +282,6 @@ FROM `defi-tvl-project.defi_data.cleaned_defi_tvl`
 WHERE Date IN ('2024-03-31', '2025-03-31')
 GROUP BY Protocol
 ORDER BY growth_percentage DESC;</code></pre>
-        </div>
-        
-        <h2>Additional Work</h2>
-        <div class="project">
-            <h3>Google Sheets Visualization</h3>
-            <p>A chart created in Google Sheets to visualize data trends during initial data exploration.</p>
-            <p><a href="google_sheets_chart_screenshot.png">View Chart Screenshot (PNG)</a></p>
-        </div>
-        <div class="project">
-            <h3>Data Cleaning with BigQuery</h3>
-            <p>Used BigQuery to clean and preprocess datasets for both the Creatine Study and Low Insulin Diet Study, handling missing values and ensuring data consistency. Below are example SQL queries used for analysis and cleaning, along with a screenshot of the BigQuery interface.</p>
-            <h4>Example 1: Creatine Study - Calculate Average Changes and Group Differences</h4>
-            <p>Calculated the average change in metrics (bench press, squat, repetitions, memory score, reaction time) for each group (Creatine and Placebo), and computed the differences between groups to quantify the effect of creatine supplementation.</p>
-            <p><strong>Query 1: Average Changes by Group</strong></p>
-            <pre><code>SELECT
-  group,
-  AVG(bench_press_1rm_kg_post - bench_press_1rm_kg_pre) AS avg_bench_press_change_kg,
-  AVG(squat_1rm_kg_post - squat_1rm_kg_pre) AS avg_squat_change_kg,
-  AVG(repetitions_bench_post - repetitions_bench_pre) AS avg_repetitions_change,
-  AVG(memory_score_post - memory_score_pre) AS avg_memory_score_change,
-  AVG(reaction_time_ms_post - reaction_time_ms_pre) AS avg_reaction_time_change_ms
-FROM your_project.your_dataset.creatine_data
-GROUP BY group;</code></pre>
-            <p><strong>Query 2: Differences Between Creatine and Placebo Groups</strong></p>
-            <pre><code>WITH avg_changes AS (
-  SELECT
-    group,
-    AVG(bench_press_1rm_kg_post - bench_press_1rm_kg_pre) AS avg_bench_press_change_kg,
-    AVG(squat_1rm_kg_post - squat_1rm_kg_pre) AS avg_squat_change_kg,
-    AVG(repetitions_bench_post - repetitions_bench_pre) AS avg_repetitions_change,
-    AVG(memory_score_post - memory_score_pre) AS avg_memory_score_change,
-    AVG(reaction_time_ms_post - reaction_time_ms_pre) AS avg_reaction_time_change_ms
-  FROM your_project.your_dataset.creatine_data
-  GROUP BY group
-)
-SELECT
-  'Creatine - Placebo' AS comparison,
-  (SELECT avg_bench_press_change_kg FROM avg_changes WHERE group = 'Creatine') -
-    (SELECT avg_bench_press_change_kg FROM avg_changes WHERE group = 'Placebo') AS bench_press_diff_kg,
-  (SELECT avg_squat_change_kg FROM avg_changes WHERE group = 'Creatine') -
-    (SELECT avg_squat_change_kg FROM avg_changes WHERE group = 'Placebo') AS squat_diff_kg,
-  (SELECT avg_repetitions_change FROM avg_changes WHERE group = 'Creatine') -
-    (SELECT avg_repetitions_change FROM avg_changes WHERE group = 'Placebo') AS repetitions_diff,
-  (SELECT avg_memory_score_change FROM avg_changes WHERE group = 'Creatine') -
-    (SELECT avg_memory_score_change FROM avg_changes WHERE group = 'Placebo') AS memory_score_diff,
-  (SELECT avg_reaction_time_ms_post - reaction_time_ms_pre FROM avg_changes WHERE group = 'Creatine') -
-    (SELECT avg_reaction_time_ms_post - reaction_time_ms_pre FROM avg_changes WHERE group = 'Placebo') AS reaction_time_diff_ms;</code></pre>
-            <h4>Example 2: Low Insulin Diet Study - Filtering Invalid Data</h4>
-            <p>Removed invalid entries by filtering out negative weights and standardizing missing values in the <code>weight_kg</code> column.</p>
-            <pre><code>SELECT 
-  participant_id,
-  diet_type,
-  week,
-  IFNULL(weight_kg, 0) AS weight_kg,
-  homa_ir,
-  fasting_insulin
-FROM your_project.your_dataset.low_insulin_diet_data
-WHERE weight_kg >= 0;</code></pre>
-            <p><a href="bigquery_screenshot.png">View BigQuery Screenshot (PNG)</a></p>
-            <p>See the cleaned datasets in the respective project sections above: <a href="creatine-study/creatine_data_final.csv">Creatine Study Dataset</a>, <a href="low-insulin-diet-study/low_insulin_diet_bigquery_cleaned.csv">Low Insulin Diet Study Dataset</a>.</p>
         </div>
         
         <h2>Contact</h2>
