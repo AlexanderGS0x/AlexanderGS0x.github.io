@@ -147,7 +147,7 @@ ORDER BY Date;</code></pre>
         </div>
         <div class="project">
             <h3>Low Insulin Diet Study</h3>
-            <p>Analyzed the effects of four diet types (Keto, Low-Carb, Standard, Control) and Ozempic on weight loss, HOMA-IR, and fasting insulin over 12 weeks usingRegional Manager R, SQL, and Tableau Public.</p>
+            <p>Analyzed the effects of four diet types (Keto, Low-Carb, Standard, Control) and Ozempic on weight loss, HOMA-IR, and fasting insulin over 12 weeks using R, SQL, and Tableau Public.</p>
             <p><a href="https://github.com/AlexanderGS0x/Low-Insulin-Diet-Study">View on GitHub</a></p>
             <p><a href="low-insulin-diet-study/Low_Insulin_Diet_Study_Report.html">View R Markdown Report (HTML)</a></p>
             <p><a href="low-insulin-diet-study/low_insulin_diet_bigquery_cleaned.csv">Download Dataset (CSV)</a></p>
@@ -204,6 +204,40 @@ ORDER BY coin, date;</code></pre>
             <p><a href="meme-coins-tracker/process_data.sql">View Data Processing Script (SQL)</a></p>
             <p><a href="meme-coins-tracker/analyze_data.R">View Analysis Script (R)</a></p>
         </div>
+        <div class="project">
+            <h3>DeFi TVL Explorer</h3>
+            <p>Analyzed Total Value Locked (TVL) growth for eight DeFi protocols (Uniswap, Aave, Maple, Compound, Lido, EigenLayer, Curve, Ethena) from Q1 2024 to Q1 2025 to identify the fastest-growing protocol. Used Python for data fetching, Google Sheets for cleaning, BigQuery for growth calculations, R for visualizations, and Tableau for an interactive dashboard.</p>
+            <ul>
+                <li><a href="https://github.com/alexandergs0x/AlexanderGS0x.github.io/tree/main/defi-tvl-explorer">GitHub Repository</a></li>
+                <li><a href="https://public.tableau.com/views/DeFiTVLExplorer/Dashboard1">Tableau Dashboard</a></li>
+                <li><a href="defi-tvl-explorer/tvl_report.html">Project Report (HTML)</a></li>
+                <li><a href="defi-tvl-explorer/tvl_growth_results.csv">Growth Results Dataset (CSV)</a></li>
+                <li><a href="defi-tvl-explorer/cleaned_defi_tvl_data.csv">Cleaned Dataset (CSV)</a></li>
+                <li><a href="defi-tvl-explorer/defi_tvl_data.csv">Raw Dataset (CSV)</a></li>
+                <li><a href="defi-tvl-explorer/tvl_trends_line_plot.png">TVL Trends Plot (PNG)</a></li>
+                <li><a href="defi-tvl-explorer/tvl_growth_bar_plot.png">Growth Bar Plot (PNG)</a></li>
+                <li><a href="defi-tvl-explorer/defi_tvl_fetch.ipynb">Python Notebook</a></li>
+                <li><a href="defi-tvl-explorer/tvl_growth.sql">SQL Query</a></li>
+                <li><a href="defi-tvl-explorer/tvl_analysis.R">R Script</a></li>
+            </ul>
+            <h4>Key Findings</h4>
+            <ul>
+                <li><b>Ethena</b> led with 1083.8% TVL growth, driven by its yield-bearing USDe stablecoin and institutional investments.</li>
+                <li><b>Uniswap</b> remained stable (1.57% growth), reflecting its dominance as a decentralized exchange.</li>
+                <li><b>Lido</b> saw a 9.71% TVL decline, likely due to a Bybit hack and competition from EigenLayer.</li>
+            </ul>
+            <h4>BigQuery Processing</h4>
+            <p>Used BigQuery to calculate TVL growth percentages for each protocol. Below is the SQL query used:</p>
+            <p><strong>Query: Calculate TVL Growth Percentages</strong></p>
+            <pre><code>SELECT
+    Protocol,
+    (MAX(CASE WHEN Date = '2025-03-31' THEN TVL_USD END) /
+     MAX(CASE WHEN Date = '2024-03-31' THEN TVL_USD END) - 1) * 100 AS growth_percentage
+FROM `defi-tvl-project.defi_data.cleaned_defi_tvl`
+WHERE Date IN ('2024-03-31', '2025-03-31')
+GROUP BY Protocol
+ORDER BY growth_percentage DESC;</code></pre>
+        </div>
         
         <h2>Additional Work</h2>
         <div class="project">
@@ -248,8 +282,8 @@ SELECT
     (SELECT avg_repetitions_change FROM avg_changes WHERE group = 'Placebo') AS repetitions_diff,
   (SELECT avg_memory_score_change FROM avg_changes WHERE group = 'Creatine') -
     (SELECT avg_memory_score_change FROM avg_changes WHERE group = 'Placebo') AS memory_score_diff,
-  (SELECT avg_reaction_time_change_ms FROM avg_changes WHERE group = 'Creatine') -
-    (SELECT avg_reaction_time_change_ms FROM avg_changes WHERE group = 'Placebo') AS reaction_time_diff_ms;</code></pre>
+  (SELECT avg_reaction_time_ms_post - reaction_time_ms_pre FROM avg_changes WHERE group = 'Creatine') -
+    (SELECT avg_reaction_time_ms_post - reaction_time_ms_pre FROM avg_changes WHERE group = 'Placebo') AS reaction_time_diff_ms;</code></pre>
             <h4>Example 2: Low Insulin Diet Study - Filtering Invalid Data</h4>
             <p>Removed invalid entries by filtering out negative weights and standardizing missing values in the <code>weight_kg</code> column.</p>
             <pre><code>SELECT 
