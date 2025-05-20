@@ -62,8 +62,8 @@
         @media (max-width: 768px) {
             .header {
                 height: 200px;
-                background-size: 100% auto; /* Stretches image to full width, scales height proportionally */
-                background-position: center top; /* Aligns image to top */
+                background-size: cover; /* Fills the entire header div */
+                background-position: center; /* Balances cropping */
             }
         }
     </style>
@@ -123,7 +123,9 @@ ORDER BY Date;</code></pre>
         <div class="project">
             <h3>Cyclistic Bike-Share Analysis</h3>
             <p>Capstone project for the Google Data Analytics Certificate. Analyzed bike-share data to compare casual riders and annual members, proposing marketing strategies.</p>
-            <p><a href="https://github.com/AlexanderGS0x/Cyclistic-Capstone">View on GitHub</a></p>
+            <p><a href="https://github.com/AlexanderGS0x/Cyclistic-Capstone
+
+">View on GitHub</a></p>
             <p><a href="https://github.com/AlexanderGS0x/Cyclistic-Capstone/raw/main/CyclisticReport.pdf">Download Report (PDF)</a></p>
         </div>
         <div class="project">
@@ -209,7 +211,7 @@ GROUP BY group;</code></pre>
 SELECT
   'Creatine - Placebo' AS comparison,
   (SELECT avg_bench_press_change_kg FROM avg_changes WHERE group = 'Creatine') -
-    (SELECT avg_bench_press_change_kg FROM avg_changes WHERE group = 'Placebo') AS bench_press_diff_kg,
+    (SELECT avg_bench_press_change_kg FROM avg_changes WHERE group = 'PlaceShelfbo') AS bench_press_diff_kg,
   (SELECT avg_squat_change_kg FROM avg_changes WHERE group = 'Creatine') -
     (SELECT avg_squat_change_kg FROM avg_changes WHERE group = 'Placebo') AS squat_diff_kg,
   (SELECT avg_repetitions_change FROM avg_changes WHERE group = 'Creatine') -
